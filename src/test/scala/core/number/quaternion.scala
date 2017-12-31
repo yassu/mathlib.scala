@@ -36,6 +36,10 @@ class QuaternionSpec extends org.specs2.mutable.Specification {
     val isOk = expectedValue.isApproximated(realValue, 0.00001)
     isOk must beTrue
   }
+  "#unary_+" >> {
+    val q = new Quaternion(1.0, 2.0, 3.0, 4.0)
+    +q must_== new Quaternion(1.0, 2.0, 3.0, 4.0)
+  }
   "#+" >> {
     "for Real number" >> {
       val q = new Quaternion(1.0, 2.0, 3.0, 4.0)
