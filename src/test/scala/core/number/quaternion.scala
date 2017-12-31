@@ -14,6 +14,14 @@ class QuaternionSpec extends org.specs2.mutable.Specification {
       q must_== new Quaternion(1.0, 0.0, 0.0, 0.0)
     }
   }
+  "abs" >> {
+    var q = new Quaternion(2.0, 3.0, 5.0, 7.0)
+    val value = q.abs
+    val expected_value = 9.32737
+    val error = 0.00001
+    val isOk = value > expected_value - error && value < expected_value + error
+    isOk  must beTrue
+  }
   "#+" >> {
     val q1 = new Quaternion(1.0, 2.0, 3.0, 4.0)
     val q2 = new Quaternion(5.0, 6.0, 7.0, 8.0)

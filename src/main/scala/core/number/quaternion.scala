@@ -2,6 +2,8 @@ package mathlib.core.number
 
 case class Quaternion(x0: Double, x1: Double, x2: Double, x3: Double) {
   def this(x0: Double) = this(x0, 0, 0, 0)
+  def abs():Double = Math.sqrt(
+    Math.pow(x0, 2) + Math.pow(x1, 2) + Math.pow(x2, 2) + Math.pow(x3, 2))
   def +(that: Quaternion) = new Quaternion(
     x0 + that.x0,
     x1 + that.x1,
