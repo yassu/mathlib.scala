@@ -14,6 +14,10 @@ class QuaternionSpec extends org.specs2.mutable.Specification {
       q must_== new Quaternion(1.0, 0.0, 0.0, 0.0)
     }
   }
+  "conjugate" >> {
+    val q = new Quaternion(1.0, 2.0, 3.0, 4.0)
+    q.conjugate must_== new Quaternion(1.0, -2.0, -3.0, -4.0)
+  }
   "abs" >> {
     var q = new Quaternion(2.0, 3.0, 5.0, 7.0)
     val value = q.abs
