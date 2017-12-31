@@ -9,5 +9,9 @@ class QuaternionSpec extends org.specs2.mutable.Specification {
       val q = new Quaternion(1.0, 2.0, 3.0, 4.0)
       q must_== new Quaternion(1.0, 2.0, 3.0, 4.0)
     }
+    "#WithOnlyRealComponent" >> {
+      val q = new Quaternion(1.0)
+      q must_== new Quaternion(1.0, 0.0, 0.0, 0.0)
+    }
   }
 }
