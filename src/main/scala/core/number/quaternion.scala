@@ -4,8 +4,7 @@ case class Quaternion(x0: Double, x1: Double, x2: Double, x3: Double) {
   def this(x0: Double) = this(x0, 0, 0, 0)
   def real(): Double = x0
   def conjugate(): Quaternion = new Quaternion(x0, -x1, -x2, -x3)
-  def abs():Double = Math.sqrt(
-    Math.pow(x0, 2) + Math.pow(x1, 2) + Math.pow(x2, 2) + Math.pow(x3, 2))
+  def abs():Double = Math.sqrt((this * this.conjugate).real)
   def +(that: Quaternion) = new Quaternion(
     x0 + that.x0,
     x1 + that.x1,
