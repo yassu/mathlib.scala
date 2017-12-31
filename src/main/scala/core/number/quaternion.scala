@@ -37,5 +37,13 @@ case class Quaternion(x0: Double, x1: Double, x2: Double, x3: Double) {
       q.x3 / Math.pow(that.abs, 2),
     )
   }
+  def /(y: Double): Quaternion = {
+    new Quaternion(
+      this.x0 / y,
+      this.x1 / y,
+      this.x2 / y,
+      this.x3 / y
+    )
+  }
   override def toString: String = s"$x0 + $x1 i + $x2 j + $x3 k"
 }
