@@ -11,6 +11,7 @@ case class Quaternion(x0: Double, x1: Double, x2: Double, x3: Double) {
     (x2 - that.x2).abs < precision &&
     (x3 - that.x3).abs < precision
   def unary_+ = this
+  def unary_- = this * (-1)
   def +(that: Quaternion) = new Quaternion(
     x0 + that.x0,
     x1 + that.x1,
