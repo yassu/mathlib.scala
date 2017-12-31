@@ -5,6 +5,11 @@ case class Quaternion(x0: Double, x1: Double, x2: Double, x3: Double) {
   def real(): Double = x0
   def conjugate(): Quaternion = new Quaternion(x0, -x1, -x2, -x3)
   def abs():Double = Math.sqrt((this * this.conjugate).real)
+  def isApproximated(that: Quaternion, precision: Double) =
+    (x0 - that.x0).abs < precision &&
+    (x1 - that.x1).abs < precision &&
+    (x2 - that.x2).abs < precision &&
+    (x3 - that.x3).abs < precision
   def +(that: Quaternion) = new Quaternion(
     x0 + that.x0,
     x1 + that.x1,
@@ -23,5 +28,14 @@ case class Quaternion(x0: Double, x1: Double, x2: Double, x3: Double) {
     this.x0 * that.x2 - this.x1 * that.x3 + this.x2 * that.x0 + this.x3 * that.x1,
     this.x0 * that.x3 + this.x1 * that.x2 - this.x2 * that.x1 + this.x3 * that.x0
   )
+  def /(that: Quaternion) = {
+    val q = this * that.conjugate
+    new Quaternion(
+      q.x0 / Math.pow(that.abs, 2),
+      q.x1 / Math.pow(that.abs, 2),
+      q.x2 / Math.pow(that.abs, 2),
+      q.x3 / Math.pow(that.abs, 2),
+    )
+  }
   override def toString: String = s"$x0 + $x1 i + $x2 j + $x3 k"
 }

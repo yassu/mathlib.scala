@@ -45,6 +45,12 @@ class QuaternionSpec extends org.specs2.mutable.Specification {
     val q2 = new Quaternion(5.0, 6.0, 7.0, 8.0)
     q1 * q2 must_== new Quaternion(-60.0, 12, 30, 24)
   }
+  "#/" >> {
+    val q1 = new Quaternion(1.0, 2.0, 3.0, 4.0)
+    val q2 = new Quaternion(2.0, 3.0, 4.0, 5.0)
+    val isOk = ((q1/q2) * q2).isApproximated(q1, 0.00001)
+    isOk must beTrue
+  }
   "#toString" >> {
     val q = new Quaternion(1.0, 2.0, 3.0, 4.0)
     q.toString must_== "1.0 + 2.0 i + 3.0 j + 4.0 k"
