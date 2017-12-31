@@ -40,6 +40,12 @@ case class Quaternion(x0: Double, x1: Double, x2: Double, x3: Double) {
     this.x0 * that.x2 - this.x1 * that.x3 + this.x2 * that.x0 + this.x3 * that.x1,
     this.x0 * that.x3 + this.x1 * that.x2 - this.x2 * that.x1 + this.x3 * that.x0
   )
+  def *(y: Double):Quaternion = new Quaternion(
+    this.x0 * y,
+    this.x1 * y,
+    this.x2 * y,
+    this.x3 * y
+  )
   def /(that: Quaternion): Quaternion = this * that.conjugate / Math.pow(that.abs, 2)
   def /(y: Double): Quaternion = {
     new Quaternion(

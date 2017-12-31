@@ -60,9 +60,15 @@ class QuaternionSpec extends org.specs2.mutable.Specification {
     }
   }
   "#*" >> {
-    val q1 = new Quaternion(1.0, 2.0, 3.0, 4.0)
-    val q2 = new Quaternion(5.0, 6.0, 7.0, 8.0)
-    q1 * q2 must_== new Quaternion(-60.0, 12, 30, 24)
+    "for Quaternion" >> {
+      val q1 = new Quaternion(1.0, 2.0, 3.0, 4.0)
+      val q2 = new Quaternion(5.0, 6.0, 7.0, 8.0)
+      q1 * q2 must_== new Quaternion(-60.0, 12, 30, 24)
+    }
+    "for Real number" >> {
+      val q = new Quaternion(1.0, 2.0, 3.0, 4.0)
+      q * 2.0 must_== new Quaternion(2.0, 4.0, 6.0, 8.0)
+    }
   }
   "#/" >> {
     "for Quaternion" >> {
