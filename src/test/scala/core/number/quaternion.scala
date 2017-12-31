@@ -30,6 +30,12 @@ class QuaternionSpec extends org.specs2.mutable.Specification {
     val isOk = value > expected_value - error && value < expected_value + error
     isOk  must beTrue
   }
+  "isApproximated" >> {
+    val realValue = new Quaternion(1.000001, 0.99999, 1.000001, -0.000001)
+    val expectedValue = new Quaternion(1.0, 1.0, 1.0, 0.0)
+    val isOk = expectedValue.isApproximated(realValue, 0.00001)
+    isOk must beTrue
+  }
   "#+" >> {
     val q1 = new Quaternion(1.0, 2.0, 3.0, 4.0)
     val q2 = new Quaternion(5.0, 6.0, 7.0, 8.0)
