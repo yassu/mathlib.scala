@@ -28,15 +28,7 @@ case class Quaternion(x0: Double, x1: Double, x2: Double, x3: Double) {
     this.x0 * that.x2 - this.x1 * that.x3 + this.x2 * that.x0 + this.x3 * that.x1,
     this.x0 * that.x3 + this.x1 * that.x2 - this.x2 * that.x1 + this.x3 * that.x0
   )
-  def /(that: Quaternion) = {
-    val q = this * that.conjugate
-    new Quaternion(
-      q.x0 / Math.pow(that.abs, 2),
-      q.x1 / Math.pow(that.abs, 2),
-      q.x2 / Math.pow(that.abs, 2),
-      q.x3 / Math.pow(that.abs, 2),
-    )
-  }
+  def /(that: Quaternion): Quaternion = this * that.conjugate / Math.pow(that.abs, 2)
   def /(y: Double): Quaternion = {
     new Quaternion(
       this.x0 / y,
