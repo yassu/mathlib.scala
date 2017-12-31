@@ -16,6 +16,12 @@ case class Quaternion(x0: Double, x1: Double, x2: Double, x3: Double) {
     x2 + that.x2,
     x3 + that.x3
   )
+  def +(y: Double) = new Quaternion(
+    x0 + y,
+    x1,
+    x2,
+    x3
+  )
   def -(that: Quaternion) = new Quaternion(
     x0 - that.x0,
     x1 - that.x1,
