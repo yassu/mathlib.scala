@@ -95,4 +95,10 @@ class QuaternionSpec extends org.specs2.mutable.Specification {
     val q = new Quaternion(1.0, 2.0, 3.0, 4.0)
     q.toString must_== "1.0 + 2.0 i + 3.0 j + 4.0 k"
   }
+  "#zero" >> {
+    Quaternion.zero must_== new Quaternion(0, 0, 0, 0)
+  }
+  "#one" >> {
+    Quaternion.one must_== new Quaternion(1, 0, 0, 0)
+  }
 }

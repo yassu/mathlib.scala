@@ -32,3 +32,8 @@ case class Quaternion(x0: Double, x1: Double, x2: Double, x3: Double) {
   def /(y: Double): Quaternion = this * (1 / y)
   override def toString: String = s"$x0 + $x1 i + $x2 j + $x3 k"
 }
+
+object Quaternion {
+  def zero = new Quaternion(0, 0, 0, 0)
+  def one = new Quaternion(1, 0, 0, 0)
+}
