@@ -19,3 +19,7 @@ case class Complex(x: Double, y: Double) {
   )
   override def toString(): String = NumberUtils.numberString(List(x, y), List("1", "i"))
 }
+
+object Complex {
+  implicit def DoubleToComplex(x: Double) = new Complex(x, 0)
+}

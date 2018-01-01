@@ -16,6 +16,10 @@ class ComplexSpec extends org.specs2.mutable.Specification {
     val z = new Complex(1, 2)
     -z must_== new Complex(-1, -2)
   }
+  "implicit" >> {
+    val z = new Complex(1, 2)
+    2 + z must_== new Complex(3, 2)
+  }
   "#+" >> {
     val z1 = new Complex(2, 3)
     val z2 = new Complex(5, 7)
