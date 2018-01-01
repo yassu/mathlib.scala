@@ -10,6 +10,12 @@ class NumberUtilsSpec extends org.specs2.mutable.Specification {
     "case: 1 term" >> {
       NumberUtils.termString(2.0, "1") must_== "2.0"
     }
+    "case: negative term" >> {
+      NumberUtils.termString(-2.0, "i") must_== "- 2.0 i"
+    }
+    "case: negative 1 term" >> {
+      NumberUtils.termString(-2.0, "1") must_== "- 2.0"
+    }
   }
 }
 
