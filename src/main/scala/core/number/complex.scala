@@ -8,4 +8,8 @@ case class Complex(x: Double, y: Double) {
     y + that.y
   )
   def -(that: Complex): Complex = this + (-that)
+  def *(that: Complex): Complex = new Complex(
+    this.x * that.x - this.y * that.y,
+    this.x * that.y + this.y * that.x
+  )
 }
