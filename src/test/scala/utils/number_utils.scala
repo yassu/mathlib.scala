@@ -19,6 +19,12 @@ class NumberUtilsSpec extends org.specs2.mutable.Specification {
     "case: with positive sgn" >> {
       NumberUtils.termString(2.0, "i", withPositiveSgn=true) must_== "+ 2.0 i"
     }
+    "case: with positive sgn2" >> {
+      NumberUtils.termString(-2.0, "i", withPositiveSgn=true) must_== "- 2.0 i"
+    }
+    "case: 0.0" >> {
+      NumberUtils.termString(0.0, "i") must_== "0.0"
+    }
   }
 }
 

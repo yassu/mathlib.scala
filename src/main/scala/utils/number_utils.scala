@@ -1,7 +1,10 @@
 package mathlib.utils
 
 object NumberUtils {
-  def termString(x: Double, unit: String, withPositiveSgn: Boolean=false) =
+  def termString(x: Double, unit: String, withPositiveSgn: Boolean=false): String = {
+    if (x == 0.0)
+      return "0.0"
+
     (
       if (x > 0.0 && withPositiveSgn)
         "+ "
@@ -16,4 +19,5 @@ object NumberUtils {
       else
         s" $unit"
     )
+  }
 }
