@@ -31,4 +31,9 @@ class ComplexSpec extends org.specs2.mutable.Specification {
     val z2 = new Complex(3, 5)
     (z1 * z2) must_== new Complex(-7, 11)
   }
+  "#/" >> {
+    val z1 = new Complex(1, 2)
+    val z2 = new Complex(3, 5)
+    (z1 / z2 * z2) must_== new Complex(1, 2)
+  }
 }

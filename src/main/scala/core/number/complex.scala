@@ -12,4 +12,8 @@ case class Complex(x: Double, y: Double) {
     this.x * that.x - this.y * that.y,
     this.x * that.y + this.y * that.x
   )
+  def /(that: Complex): Complex = this * new Complex(
+    that.x / (that.x * that.x + that.y * that.y),
+    -that.y / (that.x * that.x + that.y * that.y)
+  )
 }
