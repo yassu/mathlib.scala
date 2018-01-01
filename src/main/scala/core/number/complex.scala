@@ -22,5 +22,7 @@ case class Complex(x: Double, y: Double) {
 }
 
 object Complex {
+  def zero: Complex = new Complex(0.0)
+  def one: Complex = new Complex(1.0)
   implicit def DoubleToComplex(x: Double) = new Complex(x)
 }

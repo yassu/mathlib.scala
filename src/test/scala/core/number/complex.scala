@@ -61,5 +61,11 @@ class ComplexSpec extends org.specs2.mutable.Specification {
       val z = new Complex(0.0, 0.0)
       z.toString must_== "0.0"
     }
+    "zero" >> {
+      Complex.zero must_== new Complex(0)
+    }
+    "one" >> {
+      Complex.one must_== new Complex(1)
+    }
   }
 }
