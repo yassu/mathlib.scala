@@ -8,4 +8,8 @@ class ComplexSpec extends org.specs2.mutable.Specification {
       z must_== new Complex(1, 2)
     }
   }
+  "#unary_+" >> {
+    val z = new Complex(1, 2)
+    +z must_== new Complex(1, 2)
+  }
 }
