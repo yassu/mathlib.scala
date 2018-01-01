@@ -1,4 +1,5 @@
 package mathlib.number
+import mathlib.utils.NumberUtils
 
 case class Complex(x: Double, y: Double) {
   def unary_+(): Complex = this
@@ -16,5 +17,5 @@ case class Complex(x: Double, y: Double) {
     that.x / (that.x * that.x + that.y * that.y),
     -that.y / (that.x * that.x + that.y * that.y)
   )
-  override def toString(): String = s"$x + $y i"
+  override def toString(): String = NumberUtils.numberString(List(x, y), List("1", "i"))
 }
