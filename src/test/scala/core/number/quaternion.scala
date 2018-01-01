@@ -92,8 +92,18 @@ class QuaternionSpec extends org.specs2.mutable.Specification {
     }
   }
   "#toString" >> {
-    val q = new Quaternion(1.0, 2.0, 3.0, 4.0)
-    q.toString must_== "1.0 + 2.0 i + 3.0 j + 4.0 k"
+    "toString1" >> {
+      val q = new Quaternion(1.0, 2.0, 3.0, 4.0)
+      q.toString must_== "1.0 + 2.0 i + 3.0 j + 4.0 k"
+    }
+    "toString2" >> {
+      val q = new Quaternion(1.0, 0, -1.0, 0)
+      q.toString must_== "1.0 - 1.0 j"
+    }
+    "toString3" >> {
+      val q = new Quaternion(0.0, 0.0, 0.0, 0.0)
+      q.toString must_== "0.0"
+    }
   }
   "#zero" >> {
     Quaternion.zero must_== new Quaternion(0, 0, 0, 0)

@@ -1,4 +1,5 @@
 package mathlib.number
+import mathlib.utils.NumberUtils
 
 case class Quaternion(x0: Double, x1: Double, x2: Double, x3: Double) {
   def this(x0: Double) = this(x0, 0, 0, 0)
@@ -30,7 +31,8 @@ case class Quaternion(x0: Double, x1: Double, x2: Double, x3: Double) {
   def *(y: Double):Quaternion = this * new Quaternion(y, 0, 0, 0)
   def /(that: Quaternion): Quaternion = this * that.conjugate / Math.pow(that.abs, 2)
   def /(y: Double): Quaternion = this * (1 / y)
-  override def toString: String = s"$x0 + $x1 i + $x2 j + $x3 k"
+  override def toString: String =
+    NumberUtils.numberString(List(x0, x1, x2, x3), List("1", "i", "j", "k"))
 }
 
 object Quaternion {
