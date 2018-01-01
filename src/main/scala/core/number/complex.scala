@@ -16,4 +16,5 @@ case class Complex(x: Double, y: Double) {
     that.x / (that.x * that.x + that.y * that.y),
     -that.y / (that.x * that.x + that.y * that.y)
   )
+  override def toString(): String = s"$x + $y i"
 }
