@@ -36,14 +36,14 @@ class ComplexSpec extends org.specs2.mutable.Specification {
     val z2 = new Complex(3, 5)
     (z1 / z2 * z2) must_== new Complex(1, 2)
   }
-  "toString" >> {
-    "toString1" >> {
-      val z = new Complex(1, 2)
-      z.toString must_== "1.0 + 2.0 i"
-    }
-    "toString2" >> {
-      val z = new Complex(1, -2)
-      z.toString must_== "1.0 - 2.0 i"
-    }
-  }
+  // "toString" >> {
+  //   "toString1" >> {
+  //     val z = new Complex(1, 2)
+  //     z.toString must_== "1.0 + 2.0 i"
+  //   }
+  //   "toString2" >> {
+  //     val z = new Complex(1, -2)
+  //     z.toString must_== "1.0 - 2.0 i"
+    // }
+  // }
 }
