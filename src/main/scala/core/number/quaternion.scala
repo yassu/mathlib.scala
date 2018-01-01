@@ -38,4 +38,5 @@ case class Quaternion(x0: Double, x1: Double, x2: Double, x3: Double) {
 object Quaternion {
   def zero = new Quaternion(0, 0, 0, 0)
   def one = new Quaternion(1, 0, 0, 0)
+  implicit def DoubleToQuaternion(x: Double) = new Quaternion(x)
 }
