@@ -2,6 +2,7 @@ package mathlib.number
 import mathlib.utils.NumberUtils
 
 case class Complex(x: Double, y: Double) {
+  def this(x: Double) = this(x, 0)
   def unary_+(): Complex = this
   def unary_-(): Complex = new Complex(-x, -y)
   def +(that: Complex): Complex = new Complex(
@@ -21,5 +22,5 @@ case class Complex(x: Double, y: Double) {
 }
 
 object Complex {
-  implicit def DoubleToComplex(x: Double) = new Complex(x, 0)
+  implicit def DoubleToComplex(x: Double) = new Complex(x)
 }
