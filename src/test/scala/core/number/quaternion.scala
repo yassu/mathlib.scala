@@ -1,5 +1,5 @@
-package mathlib.test.core.number
-import mathlib.core.number._
+package mathlib.test.number
+import mathlib.number._
 
 import org.specs2._
 
