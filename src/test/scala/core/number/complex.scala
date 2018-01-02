@@ -20,6 +20,14 @@ class ComplexSpec extends org.specs2.mutable.Specification {
     val z = new Complex(1, 2)
     z.conjugate must_== new Complex(1, -2)
   }
+  "#abs" >> {
+    val z = new Complex(3, 4)
+    z.abs must_== 5.0
+  }
+  "#abs2" >> {
+    val z = new Complex(3, 4)
+    z.abs2 must_== 25.0
+  }
   "#unary_+" >> {
     val z = new Complex(1, 2)
     +z must_== new Complex(1, 2)
