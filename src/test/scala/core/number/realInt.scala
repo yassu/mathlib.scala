@@ -30,23 +30,51 @@ class RealIntSpec extends org.specs2.mutable.Specification {
     -n must_== new RealInt(3)
   }
   "#+" >> {
-    val n1 = new RealInt(2)
-    val n2 = new RealInt(5)
-    n1 + n2 must_== new RealInt(7)
+    "for RealInt" >> {
+      val n1 = new RealInt(2)
+      val n2 = new RealInt(5)
+      n1 + n2 must_== new RealInt(7)
+    }
+    "for Int" >> {
+      val n = new RealInt(2)
+      n + 3 must_== new RealInt(5)
+    }
   }
   "#-" >> {
-    val n1 = new RealInt(2)
-    val n2 = new RealInt(5)
-    n1 - n2 must_== new RealInt(-3)
+    "for RealInt" >> {
+      val n1 = new RealInt(2)
+      val n2 = new RealInt(5)
+      n1 - n2 must_== new RealInt(-3)
+    }
+    "for Int" >> {
+      val n = new RealInt(-3)
+      n - 3 must_== new RealInt(-6)
+    }
   }
   "#*" >> {
-    val n1 = new RealInt(2)
-    val n2 = new RealInt(5)
-    n1 * n2 must_== new RealInt(2 * 5)
+    "for RealInt" >> {
+      val n1 = new RealInt(2)
+      val n2 = new RealInt(5)
+      n1 * n2 must_== new RealInt(2 * 5)
+    }
+    "for Int" >> {
+      val n = new RealInt(2)
+      n * 3 must_== new RealInt(2 * 3)
+    }
   }
   "#/" >> {
-    val n1 = new RealInt(-10)
-    val n2 = new RealInt(3)
-    n1 / n2 must_== new RealInt(-3)
+    "for RealInt" >> {
+      val n1 = new RealInt(-10)
+      val n2 = new RealInt(3)
+      n1 / n2 must_== new RealInt(-3)
+    }
+    "for Int" >> {
+      val n = new RealInt(7)
+      n / 3 must_== new RealInt(7 / 3)
+    }
+  }
+  "toString" >> {
+    val n = new RealInt(-10)
+    n.toString must_== "- 10"
   }
 }
