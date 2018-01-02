@@ -39,4 +39,14 @@ class RealIntSpec extends org.specs2.mutable.Specification {
     val n2 = new RealInt(5)
     n1 - n2 must_== new RealInt(-3)
   }
+  "#*" >> {
+    val n1 = new RealInt(2)
+    val n2 = new RealInt(5)
+    n1 * n2 must_== new RealInt(2 * 5)
+  }
+  "#/" >> {
+    val n1 = new RealInt(-10)
+    val n2 = new RealInt(3)
+    n1 / n2 must_== new RealInt(-3)
+  }
 }
