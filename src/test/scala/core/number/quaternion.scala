@@ -1,5 +1,6 @@
 package mathlib.test.number
 import mathlib.number._
+import mathlib.utils.isApproximated
 
 import org.specs2._
 
@@ -28,6 +29,11 @@ class QuaternionSpec extends org.specs2.mutable.Specification {
     val expected_value = 9.32737
     val error = 0.00001
     val isOk = value > expected_value - error && value < expected_value + error
+    isOk must beTrue
+  }
+  "abs2" >> {
+    var q = new Quaternion(3.0, 3.0, 4.0, 4.0)
+    val isOk = isApproximated(new List(q.abs2), new List(2.0 * 25.0))
     isOk must beTrue
   }
   "isApproximated" >> {
