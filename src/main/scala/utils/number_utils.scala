@@ -20,14 +20,16 @@ object NumberUtils {
         s" $unit"
     )
   }
-  def numberString(xs: List[Double], units: List[String]): String = {
-    val stringWithSgn = xs.zip(units).collect { case t if t._1 != 0.0 => t }.
+  def replNumberString(xs: List[Double], units: List[String]): String = 
+    xs.zip(units).collect { case t if t._1 != 0.0 => t }.
       map(term => termString(term._1, term._2, withPositiveSgn=true)).mkString(" ")
-    if(stringWithSgn == "")
+  def numberString(xs: List[Double], units: List[String]): String = {
+    val replString = replNumberString(xs, units)
+    if (replString == "")
       "0.0"
-    else if(stringWithSgn.startsWith("+ "))
-      stringWithSgn.drop("+ ".size)
+    else if(replString.startsWith("+ "))
+      replString.drop("+ ".size)
     else
-      stringWithSgn
+      replString
   }
 }
