@@ -89,7 +89,8 @@ class ComplexSpec extends org.specs2.mutable.Specification {
     "for complex" >> {
       val z1 = new Complex(1, 2)
       val z2 = new Complex(3, 5)
-      (z1 / z2 * z2) must_== new Complex(1, 2)
+      val isOk = (z1 / z2 * z2).isApproximated(new Complex(1, 2))
+      isOk must beTrue
     }
     "for Double" >> {
       val z = new Complex(1, 2)

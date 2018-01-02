@@ -27,10 +27,7 @@ case class Complex(x: Double, y: Double) {
     this.x * that.y + this.y * that.x
   )
   def *(x2: Double): Complex = new Complex(x * x2, y * x2)
-  def /(that: Complex): Complex = this * new Complex(
-    that.x / (that.x * that.x + that.y * that.y),
-    -that.y / (that.x * that.x + that.y * that.y)
-  )
+  def /(that: Complex): Complex = this * that.conjugate / that.abs2
   def /(x2: Double): Complex = this * (1.0/x2)
   override def toString(): String = NumberUtils.numberString(List(x, y), List("1", "i"))
 }
