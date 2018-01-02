@@ -77,4 +77,10 @@ class RealIntSpec extends org.specs2.mutable.Specification {
     val n = new RealInt(-10)
     n.toString must_== "- 10"
   }
+  "#zero" >> {
+    RealInt.zero must_== new RealInt(0)
+  }
+  "#one" >> {
+    RealInt.one must_== new RealInt(1)
+  }
 }

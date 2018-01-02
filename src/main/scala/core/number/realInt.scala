@@ -15,3 +15,8 @@ case class RealInt(n: Int) {
   def /(n2: Int): RealInt = new RealInt(n / n2)
   override def toString(): String = NumberUtils.numberString(List(n), List("1"))
 }
+
+object RealInt {
+  def zero: RealInt = new RealInt(0)
+  def one: RealInt = new RealInt(1)
+}
