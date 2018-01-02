@@ -29,4 +29,14 @@ class RealIntSpec extends org.specs2.mutable.Specification {
     val n = new RealInt(-3)
     -n must_== new RealInt(3)
   }
+  "#+" >> {
+    val n1 = new RealInt(2)
+    val n2 = new RealInt(5)
+    n1 + n2 must_== new RealInt(7)
+  }
+  "#-" >> {
+    val n1 = new RealInt(2)
+    val n2 = new RealInt(5)
+    n1 - n2 must_== new RealInt(-3)
+  }
 }
