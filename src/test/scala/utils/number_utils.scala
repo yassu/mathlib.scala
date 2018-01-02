@@ -3,6 +3,23 @@ import mathlib.utils._
 import org.specs2._
 
 class NumberUtilsSpec extends org.specs2.mutable.Specification {
+  "#isApproximated" >> {
+    "withDefaultOption0" >> {
+      val xs = List(1.0, 2.0, 3.0)
+      val ys = List(1.0, 2.0, 3.0)
+      NumberUtils.isApproximated(xs, ys) must_== true
+    }
+    "withDefaultOption1" >> {
+      val xs = List(1.0, 2.0, 3.0)
+      val ys = List(0.999999, 2.0, 3.0)
+      NumberUtils.isApproximated(xs, ys) must_== true
+    }
+    "withDefaultOption2" >> {
+      val xs = List(1.0, 2.0, 3.0)
+      val ys = List(1.0, 2.0, 2.9999)
+      NumberUtils.isApproximated(xs, ys) must_== false
+    }
+  }
   "#termString" >> {
     "case: positive term" >> {
       NumberUtils.termString(2.0, "i") must_== "2.0 i"

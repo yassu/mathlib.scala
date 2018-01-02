@@ -1,6 +1,8 @@
 package mathlib.utils
 
 object NumberUtils {
+  def isApproximated(xs: List[Double], ys: List[Double], precision: Double = 0.00001): Boolean =
+    xs.zip(ys).foldLeft(true) { (b, t) => b && (t._1 - t._2).abs < precision}
   def termString(x: Double, unit: String, withPositiveSgn: Boolean=false): String = {
     if (x == 0.0)
       return "0.0"
