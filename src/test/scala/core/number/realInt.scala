@@ -12,5 +12,13 @@ class RealIntSpec extends org.specs2.mutable.Specification {
       val n = new RealInt(3)
       n.abs must_== 3
     }
+    "case: abs of zero integer" >> {
+      val n = new RealInt(0)
+      n.abs must_== 0
+    }
+    "case: abs of negative integer" >> {
+      val n = new RealInt(-3)
+      n.abs must_== 3
+    }
   }
 }
