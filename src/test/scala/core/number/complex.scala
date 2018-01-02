@@ -86,7 +86,7 @@ class ComplexSpec extends org.specs2.mutable.Specification {
     }
   }
   "#/" >> {
-    "for Complex" >> {
+    "for complex" >> {
       val z1 = new Complex(1, 2)
       val z2 = new Complex(3, 5)
       (z1 / z2 * z2) must_== new Complex(1, 2)

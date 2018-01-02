@@ -31,7 +31,7 @@ case class Complex(x: Double, y: Double) {
     that.x / (that.x * that.x + that.y * that.y),
     -that.y / (that.x * that.x + that.y * that.y)
   )
-  def /(x2: Double): Complex = this * 1/x2
+  def /(x2: Double): Complex = this * (1.0/x2)
   override def toString(): String = NumberUtils.numberString(List(x, y), List("1", "i"))
 }
 
