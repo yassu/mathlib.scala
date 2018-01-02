@@ -21,14 +21,17 @@ case class Complex(x: Double, y: Double) {
   )
   def +(x2: Double): Complex = new Complex(x + x2, y)
   def -(that: Complex): Complex = this + (-that)
+  def -(x2: Double): Complex = this + (-x2)
   def *(that: Complex): Complex = new Complex(
     this.x * that.x - this.y * that.y,
     this.x * that.y + this.y * that.x
   )
+  def *(x2: Double): Complex = new Complex(x * x2, y * x2)
   def /(that: Complex): Complex = this * new Complex(
     that.x / (that.x * that.x + that.y * that.y),
     -that.y / (that.x * that.x + that.y * that.y)
   )
+  def /(x2: Double): Complex = this * 1/x2
   override def toString(): String = NumberUtils.numberString(List(x, y), List("1", "i"))
 }
 

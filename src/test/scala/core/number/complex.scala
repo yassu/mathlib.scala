@@ -64,19 +64,37 @@ class ComplexSpec extends org.specs2.mutable.Specification {
     }
   }
   "#-" >> {
-    val z1 = new Complex(2, 3)
-    val z2 = new Complex(5, 7)
-    (z1 - z2) must_== new Complex(-3, -4)
+    "for Complex" >> {
+      val z1 = new Complex(2, 3)
+      val z2 = new Complex(5, 7)
+      (z1 - z2) must_== new Complex(-3, -4)
+    }
+    "for Double" >> {
+      val z = new Complex(1, 2)
+      (z - 2) must_== new Complex(-1, 2)
+    }
   }
   "#*" >> {
-    val z1 = new Complex(1, 2)
-    val z2 = new Complex(3, 5)
-    (z1 * z2) must_== new Complex(-7, 11)
+    "for Complex" >> {
+      val z1 = new Complex(1, 2)
+      val z2 = new Complex(3, 5)
+      (z1 * z2) must_== new Complex(-7, 11)
+    }
+    "for Double" >> {
+      val z = new Complex(1, 2)
+      z * 2 must_== new Complex(2, 4)
+    }
   }
   "#/" >> {
-    val z1 = new Complex(1, 2)
-    val z2 = new Complex(3, 5)
-    (z1 / z2 * z2) must_== new Complex(1, 2)
+    "for Complex" >> {
+      val z1 = new Complex(1, 2)
+      val z2 = new Complex(3, 5)
+      (z1 / z2 * z2) must_== new Complex(1, 2)
+    }
+    "for Double" >> {
+      val z = new Complex(1, 2)
+      z / 2 must_== new Complex(0.5, 1.0)
+    }
   }
   "toString" >> {
     "toString1" >> {
@@ -101,9 +119,11 @@ class ComplexSpec extends org.specs2.mutable.Specification {
     "one" >> {
       Complex.one must_== new Complex(1)
     }
-    // drop test because of precision
-    // "fromPolar" >> {
-      // Complex.fromPolar(2, Math.PI / 6) must_== new Complex(Math.sqrt(3), 1.0)
-    // }
+    "fromPolar" >> {
+      val real = Complex.fromPolar(2, Math.PI / 6)
+      val expected = new Complex(Math.sqrt(3), 1.0)
+      val isOk = real.isApproximated(expected)
+      isOk must beTrue
+    }
   }
 }
