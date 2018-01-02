@@ -4,6 +4,10 @@ import mathlib.utils.NumberUtils
 case class Complex(x: Double, y: Double) {
   def this(x: Double) = this(x, 0)
   def real(): Double = x
+  def conjugate(): Complex = new Complex(
+    x,
+    -y
+  )
   def unary_+(): Complex = this
   def unary_-(): Complex = new Complex(-x, -y)
   def +(that: Complex): Complex = new Complex(
