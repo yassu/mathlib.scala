@@ -1,8 +1,11 @@
 package mathlib.utils
 
+private trait numberTrait
+
 object NumberUtils {
-  def isApproximated(xs: List[Double], ys: List[Double], precision: Double = 0.00001): Boolean =
-    xs.zip(ys).foldLeft(true) { (b, t) => b && (t._1 - t._2).abs < precision}
+
+  def isApproximated[T](xs: List[T], ys: List[T], precision: T = 0.00001)(implicit num:Numeric[T]): Boolean =
+    xs.zip(ys).foldLeft(true) { (b, t) => b && num.lt(num.abs(num.minus(t._1, t._2)), precision)}
   def termString(x: Double, unit: String, withPositiveSgn: Boolean=false): String = {
     if (x == 0.0)
       return "0.0"
