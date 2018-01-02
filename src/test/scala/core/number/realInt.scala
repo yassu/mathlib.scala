@@ -21,4 +21,12 @@ class RealIntSpec extends org.specs2.mutable.Specification {
       n.abs must_== 3
     }
   }
+  "#unary_+" >> {
+    val n = new RealInt(-3)
+    +n must_== new RealInt(-3)
+  }
+  "#unary_-" >> {
+    val n = new RealInt(-3)
+    -n must_== new RealInt(3)
+  }
 }
