@@ -1,5 +1,5 @@
 package mathlib.number
-import mathlib.utils.NumberUtils
+import mathlib.utils.NumberUtils.{numberString, isApproximated}
 
 case class Quaternion(x0: Double, x1: Double, x2: Double, x3: Double) {
   def this(x0: Double) = this(x0, 0, 0, 0)
@@ -7,10 +7,8 @@ case class Quaternion(x0: Double, x1: Double, x2: Double, x3: Double) {
   def conjugate(): Quaternion = new Quaternion(x0, -x1, -x2, -x3)
   def abs():Double = Math.sqrt((this * this.conjugate).real)
   def isApproximated(that: Quaternion, precision: Double) =
-    (x0 - that.x0).abs < precision &&
-    (x1 - that.x1).abs < precision &&
-    (x2 - that.x2).abs < precision &&
-    (x3 - that.x3).abs < precision
+    mathlib.utils.NumberUtils.isApproximated(
+      List(x0, x1, x2, x3), List(that.x0, that.x1, that.x2, that.x3))
   def unary_+ = this
   def unary_- = this * (-1)
   def +(that: Quaternion) = new Quaternion(
@@ -32,7 +30,7 @@ case class Quaternion(x0: Double, x1: Double, x2: Double, x3: Double) {
   def /(that: Quaternion): Quaternion = this * that.conjugate / Math.pow(that.abs, 2)
   def /(y: Double): Quaternion = this * (1 / y)
   override def toString: String =
-    NumberUtils.numberString(List(x0, x1, x2, x3), List("1", "i", "j", "k"))
+    numberString(List(x0, x1, x2, x3), List("1", "i", "j", "k"))
 }
 
 object Quaternion {
