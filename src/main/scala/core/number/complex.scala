@@ -10,6 +10,9 @@ case class Complex(x: Double, y: Double) {
   )
   def abs(): Double = Math.sqrt(abs2)
   def abs2(): Double = (this * this.conjugate).real
+  def isApproximated(that: Complex) =
+    mathlib.utils.NumberUtils.isApproximated(
+      List(x,y), List(that.x, that.y))
   def unary_+(): Complex = this
   def unary_-(): Complex = new Complex(-x, -y)
   def +(that: Complex): Complex = new Complex(

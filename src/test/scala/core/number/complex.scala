@@ -28,6 +28,18 @@ class ComplexSpec extends org.specs2.mutable.Specification {
     val z = new Complex(3, 4)
     z.abs2 must_== 25.0
   }
+  "#isApproximated" >> {
+    val z1 = new Complex(1.0, 2.0)
+    val z2 = new Complex(1.0, 2.0)
+    val isOk = z1.isApproximated(z2)
+    isOk must beTrue
+  }
+  "#isApproximated2" >> {
+    val z1 = new Complex(1.0, 2.0)
+    val z2 = new Complex(2.0, 3.0)
+    val isOk = z1.isApproximated(z2)
+    isOk must beFalse
+  }
   "#unary_+" >> {
     val z = new Complex(1, 2)
     +z must_== new Complex(1, 2)
