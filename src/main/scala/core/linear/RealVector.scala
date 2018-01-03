@@ -10,10 +10,7 @@ case class RealVector(xs: Double*) {
   def isApproximated(that: RealVector): Boolean =
     NumberUtils.isApproximated(this.xs.toList, that.xs.toList)
   def unary_+(): RealVector = this
-  def unary_-(): RealVector = {
-    val ys = xs.map(-_)
-    new RealVector(ys:_*)
-  }
+  def unary_-(): RealVector = new RealVector(xs.map(-_): _*)
   def +(that: RealVector): RealVector = new RealVector(
     xs.zip(that.xs).map(t => t._1 + t._2): _*)
   def -(that: RealVector): RealVector = new RealVector(
