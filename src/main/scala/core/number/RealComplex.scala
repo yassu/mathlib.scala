@@ -1,41 +1,41 @@
 package mathlib.number
 import mathlib.utils.NumberUtils
 
-case class Complex(x: Double, y: Double) {
+case class RealComplex(x: Double, y: Double) {
   def this(x: Double) = this(x, 0)
   def real(): Double = x
-  def conjugate(): Complex = new Complex(
+  def conjugate(): RealComplex = new RealComplex(
     x,
     -y
   )
   def abs(): Double = Math.sqrt(abs2)
   def abs2(): Double = (this * this.conjugate).real
-  def isApproximated(that: Complex) =
+  def isApproximated(that: RealComplex) =
     mathlib.utils.NumberUtils.isApproximated(
       List(x,y), List(that.x, that.y))
-  def unary_+(): Complex = this
-  def unary_-(): Complex = new Complex(-x, -y)
-  def +(that: Complex): Complex = new Complex(
+  def unary_+(): RealComplex = this
+  def unary_-(): RealComplex = new RealComplex(-x, -y)
+  def +(that: RealComplex): RealComplex = new RealComplex(
     x + that.x,
     y + that.y
   )
-  def +(x2: Double): Complex = new Complex(x + x2, y)
-  def -(that: Complex): Complex = this + (-that)
-  def -(x2: Double): Complex = this + (-x2)
-  def *(that: Complex): Complex = new Complex(
+  def +(x2: Double): RealComplex = new RealComplex(x + x2, y)
+  def -(that: RealComplex): RealComplex = this + (-that)
+  def -(x2: Double): RealComplex = this + (-x2)
+  def *(that: RealComplex): RealComplex = new RealComplex(
     this.x * that.x - this.y * that.y,
     this.x * that.y + this.y * that.x
   )
-  def *(x2: Double): Complex = new Complex(x * x2, y * x2)
-  def /(that: Complex): Complex = this * that.conjugate / that.abs2
-  def /(x2: Double): Complex = this * (1.0/x2)
+  def *(x2: Double): RealComplex = new RealComplex(x * x2, y * x2)
+  def /(that: RealComplex): RealComplex = this * that.conjugate / that.abs2
+  def /(x2: Double): RealComplex = this * (1.0/x2)
   override def toString(): String = NumberUtils.numberString(List(x, y), List("1", "i"))
 }
 
-object Complex {
-  def zero: Complex = new Complex(0.0)
-  def one: Complex = new Complex(1.0)
-  def fromPolar(d: Double, theta: Double): Complex =
-    new Complex(d * Math.cos(theta), d * Math.sin(theta))
-  implicit def DoubleToComplex(x: Double): Complex = new Complex(x)
+object RealComplex {
+  def zero: RealComplex = new RealComplex(0.0)
+  def one: RealComplex = new RealComplex(1.0)
+  def fromPolar(d: Double, theta: Double): RealComplex =
+    new RealComplex(d * Math.cos(theta), d * Math.sin(theta))
+  implicit def DoubleToRealComplex(x: Double): RealComplex = new RealComplex(x)
 }
