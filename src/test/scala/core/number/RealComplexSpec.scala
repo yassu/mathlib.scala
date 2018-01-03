@@ -114,17 +114,17 @@ class RealComplexSpec extends org.specs2.mutable.Specification {
       val z = new RealComplex(0.0, 0.0)
       z.toString must_== "0.0"
     }
-    "zero" >> {
-      RealComplex.zero must_== new RealComplex(0)
-    }
-    "one" >> {
-      RealComplex.one must_== new RealComplex(1)
-    }
-    "fromPolar" >> {
-      val real = RealComplex.fromPolar(2, Math.PI / 6)
-      val expected = new RealComplex(Math.sqrt(3), 1.0)
-      val isOk = real.isApproximated(expected)
-      isOk must beTrue
-    }
+  }
+  "zero" >> {
+    RealComplex.zero must_== new RealComplex(0)
+  }
+  "one" >> {
+    RealComplex.one must_== new RealComplex(1)
+  }
+  "fromPolar" >> {
+    val real = RealComplex.fromPolar(2, Math.PI / 6)
+    val expected = new RealComplex(Math.sqrt(3), 1.0)
+    val isOk = real.isApproximated(expected)
+    isOk must beTrue
   }
 }
