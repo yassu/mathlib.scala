@@ -121,6 +121,9 @@ class RealComplexSpec extends org.specs2.mutable.Specification {
   "one" >> {
     RealComplex.one must_== new RealComplex(1)
   }
+  "i" >> {
+    RealComplex.i must_== new RealComplex(0, 1)
+  }
   "fromPolar" >> {
     val real = RealComplex.fromPolar(2, Math.PI / 6)
     val expected = new RealComplex(Math.sqrt(3), 1.0)

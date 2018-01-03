@@ -35,6 +35,7 @@ case class RealComplex(x: Double, y: Double) {
 object RealComplex {
   def zero: RealComplex = new RealComplex(0.0)
   def one: RealComplex = new RealComplex(1.0)
+  def i: RealComplex = new RealComplex(0, 1.0)
   def fromPolar(d: Double, theta: Double): RealComplex =
     new RealComplex(d * Math.cos(theta), d * Math.sin(theta))
   implicit def DoubleToRealComplex(x: Double): RealComplex = new RealComplex(x)
