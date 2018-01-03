@@ -35,7 +35,10 @@ case class RealQuaternion(x0: Double, x1: Double, x2: Double, x3: Double) {
 }
 
 object RealQuaternion {
-  def zero = new RealQuaternion(0, 0, 0, 0)
-  def one = new RealQuaternion(1, 0, 0, 0)
+  def zero: RealQuaternion = new RealQuaternion(0, 0, 0, 0)
+  def one: RealQuaternion = new RealQuaternion(1, 0, 0, 0)
+  def i: RealQuaternion = new RealQuaternion(0, 1, 0, 0)
+  def j: RealQuaternion = new RealQuaternion(0, 0, 1, 0)
+  def k: RealQuaternion = new RealQuaternion(0, 0, 0, 1)
   implicit def DoubleToRealQuaternion(x: Double) = new RealQuaternion(x)
 }

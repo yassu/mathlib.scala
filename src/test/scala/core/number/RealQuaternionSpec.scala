@@ -121,4 +121,13 @@ class RealQuaternionSpec extends org.specs2.mutable.Specification {
   "#one" >> {
     RealQuaternion.one must_== new RealQuaternion(1, 0, 0, 0)
   }
+  "#i" >> {
+    RealQuaternion.i must_== new RealQuaternion(0, 1, 0, 0)
+  }
+  "#j" >> {
+    RealQuaternion.j must_== new RealQuaternion(0, 0, 1, 0)
+  }
+  "#k" >> {
+    RealQuaternion.k must_== new RealQuaternion(0, 0, 0, 1)
+  }
 }
